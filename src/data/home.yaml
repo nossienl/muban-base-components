@@ -1,8 +1,8 @@
 title: "Home"
 
 meta:
-  id: '' # can be number or string, used for ordering
-  status: '' # dev, qa, feedback, done
+  id: '1' # can be number or string, used for ordering
+  status: 'dev' # dev, qa, feedback, done
   notes: '' # add some information about the page
   category: '' # to group pages in the overview
 
