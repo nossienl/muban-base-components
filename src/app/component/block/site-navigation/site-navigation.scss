@@ -1,4 +1,63 @@
-/* stylelint-disable-next-line block-no-empty */
 .site-navigation {
+  height: 5.6rem;
+  width: 100%;
+  position: fixed;
+  background-color:  #fff;
+  z-index: 3;
+  padding: 1rem;
 
+  &:before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: fixed;
+    background-color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s linear;
+    left: 0;
+    top: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    background-color: #f1f3f5;
+  }
+
+  .content-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+
+    a {
+      height: 100%;
+      margin-right: 2rem;
+    }
+  }
+
+  @import 'style/site-navigation-menu';
+
+  @media screen and (min-width: 768px) {}
+
+  @media screen and (min-width: 1024px) {
+    height: 8rem;
+    padding: 2rem;
+  }
+
+  @media screen and (min-width: 1366px) {}
+
+  @media screen and (min-width: 1600px) {}
+
+  @media screen and (min-width: 1920px) {}
 }
