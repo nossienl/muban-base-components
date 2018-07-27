@@ -7,8 +7,5 @@ meta:
   category: '' # to group pages in the overview
 
 blocks:
-  - name: "paragraph"
-    data: "import!../app/component/block/paragraph/data.yaml"
-
-  - name: "two-col"
-    data: "import!../app/component/block/two-col/data.yaml"
+  - name: "site-navigation"
+    data: "import!../app/component/block/site-navigation/data.yaml"
