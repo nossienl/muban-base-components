@@ -1,8 +1,11 @@
 .site-navigation-menu {
   $padding: 2rem;
   $zMenu: reset, tier-one;
-  $overlayBackgroundColor : #141414;
+  $overlayBackgroundColor: #141414;
   $menuItemLabelColor: #141414;
+  $seperatorColor: #141414;
+  $backButtonBackgroundColor: #DADFE1;
+  $backButtonColor: #141414;
 
 
   .icon-back,
@@ -24,8 +27,8 @@
       width: 100%;
       color: #000;
       line-height: 2.4rem;
-      box-shadow: $padding / 4 0 0 0 rgba(#fff, 1) inset,
-      $padding / 4 -1px 0 0 rgba(red, 1) inset;
+      box-shadow: 0 0 0 0 rgba($seperatorColor, .2) inset,
+      0 -1px 0 0 rgba($seperatorColor, .2) inset;
       letter-spacing: 1px;
 
       &.is-active {
@@ -53,9 +56,9 @@
     }
 
     .back-navigation {
-      background-color: grey;
+      background-color: $backButtonBackgroundColor;
       box-shadow: none;
-      color: red;
+      color: $backButtonColor;
 
       .icon-back {
         margin-right: 8px;
@@ -89,9 +92,8 @@
 
     &.tier-container > li {
       &:first-child {
-        box-shadow: 2rem / 4 1px 0 0 rgba(#fff, 1) inset,
-        2rem / 4 -1px 0 0 rgba(red, 1),
-        2rem / 4 -1px 0 0 rgba(red, 1) inset;
+        box-shadow: 0 -1px 0 0 rgba($seperatorColor, 0.2),
+        0 -1px 0 0 rgba($seperatorColor, 0.2) inset;
       }
     }
   }
@@ -311,6 +313,7 @@
     .tier-two {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       z-index: 0;
       padding-bottom: $padding * 1.5;
       padding-right: $padding;

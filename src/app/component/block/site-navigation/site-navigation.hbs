@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="./site-navigation.scss">
 <script src="./SiteNavigation.ts"></script>
 
-<header class="site-navigation" data-component="site-navigation">
+<header class="site-navigation js-site-navigation" data-component="site-navigation">
   <div class="content-wrapper">
       <h1 class="logo-wrapper">
         <a href="/" class="logo" title="Muban Base Components">LOGO</a>
       </h1>
 
-      <nav class="site-navigation-menu">
+      <nav class="site-navigation-menu js-site-navigation-menu">
         <ul class="tier-one tier-container" data-slide-target="true">
           {{ menuItems.name }}
 
@@ -35,9 +35,9 @@
                           <a class="tier-two-item tier-item" href="{{url}}" target={{target}}>{{name}}</a>
                         {{else}}
                           <span class="tier-two-item tier-item">
-                      {{name}}
+                            {{name}}
                             {{> general/icon name='navigation-arrow' iconClassName='icon-next' }}
-                    </span>
+                          </span>
                         {{/if}}
                         {{#if items}}
                           <ul class="tier-three tier-container">
@@ -66,7 +66,13 @@
       </nav>
 
       <nav class="site-navigation-menu-actions">
-        account / search / cta
+        <ul>
+          <li class="menu-action">
+            <button class="menu-button js-menu-button">
+              <span></span>
+            </button>
+          </li>
+        </ul>
       </nav>
   </div>
 </header>

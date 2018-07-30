@@ -17,6 +17,7 @@
     transition: opacity .2s linear;
     left: 0;
     top: 0;
+    z-index: -1;
   }
   &:after {
     content: '';
@@ -46,7 +47,15 @@
     }
   }
 
+  &.is-open {
+    &:before {
+      opacity: 1;
+    }
+  }
+
   @import 'style/site-navigation-menu';
+
+  @import "style/menu-button";
 
   @media screen and (min-width: 768px) {}
 
