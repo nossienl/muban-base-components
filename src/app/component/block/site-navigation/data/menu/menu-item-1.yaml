@@ -1,0 +1,61 @@
+name: Menu Item 1
+lists:
+  - list:
+    - name: Predix Asset  Performance Management
+      url: '#' # optional
+      target: '_blank' # optional
+      items:
+        - name: APM Health
+          url: '#'
+        - name: APM Strategy
+          url: '#'
+        - name: APM Integrity
+          url: '#'
+        - name: APM Reliability
+          url: '#'
+    - name: Predix Manufacturing  Execution Systems
+      items:
+        - name: Plant Applications
+          url: '#'
+        - name: Scheduler
+          url: '#'
+        - name: Batch Execution
+          url: '#'
+        - name: Open Enterprise
+          url: '#'
+        - name: Production Manager
+          url: '#'
+        - name: Tracker
+          url: '#'
+  - list:
+    - name: Predix ServiceMax
+      items:
+        - name: Predix Operations Performance Management
+          url: '#'
+        - name: Operational Intelligence
+          url: '#'
+        - name: Forecasting & What If Analysis
+          url: '#'
+        - name: Process and Production Optimization
+          url: '#'
+    - name: HMI/SCADA
+      items:
+        - name: iFIX
+          url: '#'
+        - name: CIMPLICITY
+          url: '#'
+        - name: Web HMI
+          url: '#'
+        - name: Workflow
+          url: '#'
+        - name: Historian
+          url: '#'
+  - list:
+    - name: Cyber Security
+      items:
+        - name: OpShield
+          url: '#'
+        - name: Achilles
+    - name: Applications A-Z Listing
+      url: '#' # optional
+      target: '_blank' # optional

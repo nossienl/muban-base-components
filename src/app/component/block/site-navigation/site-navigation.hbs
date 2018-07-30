@@ -4,21 +4,64 @@
 <header class="site-navigation" data-component="site-navigation">
   <div class="content-wrapper">
       <h1 class="logo-wrapper">
-        <a href="/" class="logo" title="Muban Base Components">MC</a>
-        <span class="logo-copy">Muban</span>
+        <a href="/" class="logo" title="Muban Base Components">LOGO</a>
       </h1>
 
       <nav class="site-navigation-menu">
-        <ul class="tier-one tier-container">
-          <li>
-            <span class="tier-one-item tier-item">Item 1</span>
-          </li>
-          <li>
-            <span class="tier-one-item tier-item">Item 2</span>
-          </li>
-          <li>
-            <span class="tier-one-item tier-item">Item 3</span>
-          </li>
+        <ul class="tier-one tier-container" data-slide-target="true">
+          {{ menuItems.name }}
+
+          {{#each menuItems}}
+            <li class="{{#if @last}}last-menu-item{{/if}}">
+              <span class="tier-one-item tier-item">
+                {{name}}
+                {{> general/icon name='navigation-arrow' iconClassName='icon-next' }}
+              </span>
+              {{menuItems}}
+              <ul class="tier-two tier-container">
+                {{#each lists}}
+                  {{#if list}}
+                    {{#unless @key}}
+                      <li class="back-navigation" data-back>
+                      <span class="tier-item">
+                        {{> general/icon name='navigation-arrow' iconClassName='icon-back' }} Main Menu
+                      </span>
+                      </li>
+                      <li class="menu-item-label">{{../name}}</li>
+                    {{/unless}}
+                    {{#each list}}
+                      <li class="{{#unless @key}}list{{/unless}}">
+                        {{#if url}}
+                          <a class="tier-two-item tier-item" href="{{url}}" target={{target}}>{{name}}</a>
+                        {{else}}
+                          <span class="tier-two-item tier-item">
+                      {{name}}
+                            {{> general/icon name='navigation-arrow' iconClassName='icon-next' }}
+                    </span>
+                        {{/if}}
+                        {{#if items}}
+                          <ul class="tier-three tier-container">
+                            <li class="back-navigation" data-back>
+                              <span class="tier-item">
+                                {{> general/icon name='navigation-arrow' iconClassName='icon-back' }}
+                                {{name}}
+                              </span>
+                            </li>
+                            {{#each items}}
+                              <li>
+                                <a class="tier-three-item tier-item" href="{{url}}" target={{target}}>{{name}}</a>
+                              </li>
+                            {{/each}}
+                          </ul>
+                        {{/if}}
+                      </li>
+                    {{/each}}
+                  {{/if}}
+                {{/each}}
+              </ul>
+            </li>
+          {{/each}}
+          <li class="menu-background"></li>
         </ul>
       </nav>
 

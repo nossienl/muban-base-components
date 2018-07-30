@@ -1,1 +1,6 @@
-key: value
+menuItems:
+- "import!./data/menu/menu-item-1.yaml"
+- "import!./data/menu/menu-item-2.yaml"
+- "import!./data/menu/menu-item-3.yaml"
+- "import!./data/menu/menu-item-4.yaml"
+- "import!./data/menu/menu-item-5.yaml"
