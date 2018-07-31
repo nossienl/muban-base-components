@@ -42,7 +42,6 @@ export default class SiteNavigation extends AbstractBlock {
 
   public animateOut(menu: HTMLElement): void {
     const activeTier = menu.querySelector('ul.is-active') || menu.querySelector('.tier-one');
-
     TweenLite.to(menu, 0.25, { y: `-${activeTier.clientHeight}px`, ease: Expo.easeIn });
   }
 

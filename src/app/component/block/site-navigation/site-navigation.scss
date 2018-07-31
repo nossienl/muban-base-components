@@ -2,9 +2,11 @@
   height: 5.6rem;
   width: 100%;
   position: fixed;
-  background-color:  #fff;
   z-index: 3;
-  padding: 1rem;
+  padding: 1rem 0;
+  background-color: #fff;
+  top: 0;
+  left: 0;
 
   &:before {
     height: 100%;
@@ -34,12 +36,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1.5rem;
+
+    &:after {
+      height: 5.6rem;
+      width: 100%;
+      position: fixed;
+      content: "";
+      top: 0;
+      left: 0;
+      background-color: #fff;
+    }
   }
 
   .logo-wrapper {
-    display: flex;
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    color: #63666a;
+    z-index: 1;
     flex-shrink: 0;
-    align-items: center;
 
     a {
       height: 100%;
@@ -49,12 +65,13 @@
 
   &.is-open {
     &:before {
+      display: block;
       opacity: 1;
     }
   }
 
   @import 'style/site-navigation-menu';
-
+  @import 'style/site-navigation-menu-actions';
   @import "style/menu-button";
 
   @media screen and (min-width: 768px) {}

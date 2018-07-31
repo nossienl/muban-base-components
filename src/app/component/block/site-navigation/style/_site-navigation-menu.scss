@@ -83,7 +83,6 @@
     flex-direction: column;
     align-items: center;
     z-index: zindex($zMenu, tier-one);
-    padding-top: $padding * 2;
 
     .menu-background {
       display: none;

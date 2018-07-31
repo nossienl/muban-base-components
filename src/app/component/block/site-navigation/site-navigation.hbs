@@ -66,8 +66,20 @@
       </nav>
 
       <nav class="site-navigation-menu-actions">
-        <ul>
+        <ul class="actions-container">
+        {{#each menuActions}}
           <li class="menu-action">
+            {{#if url}}<a href="{{url}}">{{/if}}
+              <span class="label">{{name}}</span>
+              {{#if icon}}
+                <span class="icon">
+                  {{> general/icon name=icon }}
+                </span>
+              {{/if}}
+            {{#if url}}</a>{{/if}}
+          </li>
+        {{/each}}
+          <li class="menu-action menu-button-holder">
             <button class="menu-button js-menu-button">
               <span></span>
             </button>
