@@ -1,61 +1,53 @@
 name: Menu Item 1
 lists:
   - list:
-    - name: Predix Asset  Performance Management
+    - name: Sub Menu Item 1
       url: '#' # optional
       target: '_blank' # optional
+    - name: Sub Menu 2
       items:
-        - name: APM Health
+        - name: Sub-sub menu 2 Item
           url: '#'
-        - name: APM Strategy
+        - name: Sub-sub menu 2 Item
           url: '#'
-        - name: APM Integrity
+        - name: Sub-sub menu 2 Item
           url: '#'
-        - name: APM Reliability
+        - name: Sub-sub menu 2 Item
           url: '#'
-    - name: Predix Manufacturing  Execution Systems
-      items:
-        - name: Plant Applications
+        - name: Sub-sub menu 2 Item
           url: '#'
-        - name: Scheduler
-          url: '#'
-        - name: Batch Execution
-          url: '#'
-        - name: Open Enterprise
-          url: '#'
-        - name: Production Manager
-          url: '#'
-        - name: Tracker
+        - name: Sub-sub menu 2 Item
           url: '#'
   - list:
-    - name: Predix ServiceMax
+    - name: Sub Menu 2
       items:
-        - name: Predix Operations Performance Management
+        - name: Sub-sub menu 3 Item
           url: '#'
-        - name: Operational Intelligence
+        - name: Sub-sub menu 3 Item
           url: '#'
-        - name: Forecasting & What If Analysis
+        - name: Sub-sub menu 3 Item
           url: '#'
-        - name: Process and Production Optimization
+        - name: Sub-sub menu 3 Item
           url: '#'
-    - name: HMI/SCADA
+    - name: Sub Menu 3
       items:
-        - name: iFIX
+        - name: Sub-sub menu 4 Item
           url: '#'
-        - name: CIMPLICITY
+        - name: Sub-sub menu 4 Item
           url: '#'
-        - name: Web HMI
+        - name: Sub-sub menu 4 Item
           url: '#'
-        - name: Workflow
+        - name: Sub-sub menu 4 Item
           url: '#'
-        - name: Historian
+        - name: Sub-sub menu 4 Item
           url: '#'
   - list:
-    - name: Cyber Security
+    - name: Sub Menu 4
       items:
-        - name: OpShield
+        - name: Sub-sub menu 4 Item
           url: '#'
-        - name: Achilles
-    - name: Applications A-Z Listing
+        - name: Sub-sub menu 4 Item
+          url: '#'
+    - name: Sub Menu Item 5
       url: '#' # optional
       target: '_blank' # optional

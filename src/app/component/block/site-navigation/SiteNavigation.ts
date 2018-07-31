@@ -1,55 +1,101 @@
-import AbstractBlock from "../AbstractBlock";
-import { TweenLite, Expo } from 'gsap';
+import AbstractTransitionComponent from 'app/component/AbstractTransitionComponent';
+import AbstractTransitionBlock from 'app/component/block/AbstractTransitionBlock';
+import SiteNavigationTransitionController from './SiteNavigationTransitionController';
+import MouseEvent from 'app/data/event/MouseEvent';
+import { DisposableEventListener } from 'seng-disposable-event-listener';
 
 
-export default class SiteNavigation extends AbstractBlock {
+export default class SiteNavigation extends AbstractTransitionBlock {
   static displayName:string = 'site-navigation';
   public static IS_OPEN:string = 'is-open';
+  public transitionController:SiteNavigationTransitionController;
+  public listeners = [];
+  private static desktop = window.matchMedia('(min-width: 1024px)');
 
-  private _siteNavigation:HTMLElement;
-  private _navigation:HTMLElement = this.getElement('.js-site-navigation-menu');
+  public _siteNavigation:HTMLElement;
+  public _navigation:HTMLElement = this.getElement('.js-site-navigation-menu');
   private _menuButton:HTMLElement = this.getElement('.js-menu-button');
-  private menuOpen:boolean = false;
+  public menuOpen:boolean = false;
 
   constructor(el:HTMLElement) {
     super(el);
+
+    this.transitionController = new SiteNavigationTransitionController(this);
     this._siteNavigation = el;
 
-    if (window.innerWidth < 1024) {
-      this.initMobile(this._navigation);
-    }
-    this.createEvents();
+    this.mobileFunctionality(!SiteNavigation.desktop.matches);
+
+    SiteNavigation.desktop.addListener((query) => {
+      this.mobileFunctionality(!query.matches);
+    });
   }
 
-  public createEvents():void {
+  private mobileFunctionality(enable: boolean) {
     this._menuButton.addEventListener('click', this.handleMenuButtonClick);
+    this.transitionController.initMobile(this._navigation);
+
+    if (enable) {
+      const tierItemElements: Array<HTMLElement> = this.getElements('span.tier-item');
+
+      if (tierItemElements.length > 0) {
+        this.bindMobileClickListeners(tierItemElements);
+      }
+    } else {
+      this.removeMobileFunctionality();
+    }
+  }
+
+  private removeMobileFunctionality() {
+    this.listeners.forEach(listener => listener.dispose());
+    this.listeners = [];
+
+    this.transitionController.resetTierAnimationStyles();
   }
 
   public handleMenuButtonClick = ():void => {
     if (!this.menuOpen) {
       this._siteNavigation.classList.add(SiteNavigation.IS_OPEN);
-      this.animateIn(this._navigation);
+      this.transitionController.animateIn(this._navigation);
     } else {
-      this.animateOut(this._navigation);
+      this.transitionController.animateOut(this._navigation);
       this._siteNavigation.classList.remove(SiteNavigation.IS_OPEN);
     }
     this.menuOpen = !this.menuOpen;
   };
 
-  public animateIn(menu: HTMLElement): void {
-    TweenLite.to(menu, 0.25, { ease: Expo.easeOut, y: '0%' });
+  private bindMobileClickListeners(tierItemElements: Array<HTMLElement>) {
+    tierItemElements.forEach(tierItemElement => {
+      this.listeners.push(
+        new DisposableEventListener(tierItemElement, MouseEvent.CLICK, () => {
+          if (tierItemElement.nextElementSibling.tagName === 'UL') {
+            this.transitionController.animateToTier(
+              <HTMLElement>tierItemElement.nextElementSibling,
+            );
+          }
+        }),
+      );
+    });
+
+    const backButtons: Array<HTMLElement> = this.getElements('[data-back]');
+
+    if (backButtons.length > 0) {
+      backButtons.forEach(backButton => {
+        this.listeners.push(
+          new DisposableEventListener(backButton, MouseEvent.CLICK, event => {
+            this.transitionController.animateBack(<HTMLElement>event.target);
+          }),
+        );
+      });
+    }
   }
 
-  public animateOut(menu: HTMLElement): void {
-    const activeTier = menu.querySelector('ul.is-active') || menu.querySelector('.tier-one');
-    TweenLite.to(menu, 0.25, { y: `-${activeTier.clientHeight}px`, ease: Expo.easeIn });
+  public startLoopingAnimation(): void {
+    super.startLoopingAnimation();
   }
 
-  public initMobile(menu: HTMLElement) {
-    const activeTier = menu.querySelector('ul.is-active') || menu.querySelector('.tier-one');
-    TweenLite.set(menu, { y: `-${activeTier.clientHeight}px` });
+  public stopLoopingAnimation(): void {
+    super.stopLoopingAnimation();
   }
-
 
   public dispose() {
     super.dispose();

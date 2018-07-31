@@ -66,6 +66,7 @@
     "muban-transition-component": "^2.1.4",
     "normalize.css": "^7.0.0",
     "qs": "^6.5.1",
+    "seng-disposable-event-listener": "^1.0.3",
     "seng-scss": "^1.0.0"
   },
   "devDependencies": {
