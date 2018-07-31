@@ -34,6 +34,11 @@
       }
     }
 
+    &.search-action {
+      .label {
+        display: none;
+      }
+    }
   }
 
   @media screen and (min-width: 1024px) {
@@ -41,6 +46,14 @@
 
       &.menu-button-holder {
         margin-left: 0;
+      }
+      &.search-action {
+        .label {
+          display: none;
+        }
+        .icon {
+          display: inline-block;
+        }
       }
       .label {
         display: inline-block;

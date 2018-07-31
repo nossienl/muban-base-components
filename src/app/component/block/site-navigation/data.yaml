@@ -5,11 +5,15 @@ menuItems:
 - "import!./data/menu/menu-item-4.yaml"
 - "import!./data/menu/menu-item-5.yaml"
 menuActions:
+  - name: Support
+    action: null
+    url: '#' # optional
+    target: '_blank' # optional
   - name: Sign in
-    icon: user
+    icon: user # optional
     action: null
     url: '#' # optional
     target: '_blank' # optional
   - name: Search
-    icon: magnifier
-    action: search
+    icon: magnifier # optional
+    class: 'search-action js-search-action' # optional

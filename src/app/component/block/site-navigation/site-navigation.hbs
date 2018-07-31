@@ -68,7 +68,7 @@
       <nav class="site-navigation-menu-actions">
         <ul class="actions-container">
         {{#each menuActions}}
-          <li class="menu-action">
+          <li class="menu-action {{#if class}}{{class}}{{/if}}">
             {{#if url}}<a href="{{url}}">{{/if}}
               <span class="label">{{name}}</span>
               {{#if icon}}
