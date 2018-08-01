@@ -5,10 +5,6 @@ menuItems:
 - "import!./data/menu/menu-item-4.yaml"
 - "import!./data/menu/menu-item-5.yaml"
 menuActions:
-  - name: Support
-    action: null
-    url: '#' # optional
-    target: '_blank' # optional
   - name: Sign in
     icon: user # optional
     action: null
