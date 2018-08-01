@@ -1,8 +1,8 @@
-import AbstractTransitionComponent from 'app/component/AbstractTransitionComponent';
 import AbstractTransitionBlock from 'app/component/block/AbstractTransitionBlock';
 import SiteNavigationTransitionController from './SiteNavigationTransitionController';
 import MouseEvent from 'app/data/event/MouseEvent';
 import { DisposableEventListener } from 'seng-disposable-event-listener';
+import { TweenLite } from "gsap";
 
 declare function require(name: string): string;
 
@@ -16,7 +16,7 @@ export default class SiteNavigation extends AbstractTransitionBlock {
   public _siteNavigation:HTMLElement;
   public _navigation:HTMLElement = this.getElement('.js-site-navigation-menu');
   private _menuButton:HTMLElement = this.getElement('.js-menu-button');
-  public menuOpen:boolean = false;
+  private _menuOpen:boolean = false;
 
   constructor(el:HTMLElement) {
     super(el);
@@ -32,6 +32,16 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     });
   }
 
+
+  public set menuOpen(valueToSet) {
+    if (! this._menuOpen && valueToSet) {
+      this.transitionController.animateIn(this._navigation);
+    } else if (this._menuOpen && !valueToSet) {
+      this.transitionController.animateOut(this._navigation);
+    }
+    this._menuOpen = valueToSet;
+    this.addClasses(this._menuOpen);
+  }
   /**
    * Return the svg inline based on component path.
    */
@@ -59,22 +69,25 @@ export default class SiteNavigation extends AbstractTransitionBlock {
   private removeMobileFunctionality() {
     this.listeners.forEach(listener => listener.dispose());
     this.listeners = [];
+    this.menuOpen = false;
 
     this.transitionController.resetTierAnimationStyles();
+
   };
 
   public handleMenuButtonClick = ():void => {
-    if (!this.menuOpen) {
+    this.menuOpen = !this._menuOpen;
+  };
+
+  private addClasses(shouldAdd:boolean) {
+    if (shouldAdd) {
       this._siteNavigation.classList.add(SiteNavigation.IS_OPEN);
       this._menuButton.classList.add(SiteNavigation.IS_OPEN);
-      this.transitionController.animateIn(this._navigation);
     } else {
-      this.transitionController.animateOut(this._navigation);
       this._siteNavigation.classList.remove(SiteNavigation.IS_OPEN);
       this._menuButton.classList.remove(SiteNavigation.IS_OPEN);
     }
-    this.menuOpen = !this.menuOpen;
-  };
+  }
 
   private bindMobileClickListeners(tierItemElements: Array<HTMLElement>) {
     tierItemElements.forEach(tierItemElement => {

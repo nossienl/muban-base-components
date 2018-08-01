@@ -4,6 +4,9 @@ import { Expo, TweenLite } from 'gsap';
 
 
 class SiteNavigationTransitionController extends MubanTransitionController<SiteNavigation> {
+
+  public tweenTime:number = 0.25;
+
   protected setupTransitionInTimeline(): void {}
 
   protected setupTransitionOutTimeline(): void {}
@@ -11,12 +14,12 @@ class SiteNavigationTransitionController extends MubanTransitionController<SiteN
   protected setupLoopingAnimationTimeline(): void {}
 
   public animateIn(menu: HTMLElement): void {
-    TweenLite.to(menu, 0.25, { ease: Expo.easeOut, y: '0%' });
+    TweenLite.to(menu, this.tweenTime, { ease: Expo.easeOut, y: '0%' });
   }
 
   public animateOut(menu: HTMLElement): void {
     const activeTier = menu.querySelector('ul.is-active') || menu.querySelector('.tier-one');
-    TweenLite.to(menu, 0.25, { y: `-${activeTier.clientHeight}px`, ease: Expo.easeIn });
+    TweenLite.to(menu, this.tweenTime, { y: `-${activeTier.clientHeight}px`, ease: Expo.easeIn });
   }
 
   public initMobile(menu: HTMLElement) {
@@ -63,12 +66,10 @@ class SiteNavigationTransitionController extends MubanTransitionController<SiteN
 
     if (activeTier) {
       activeTier.classList.remove('is-active');
-      this.parentController.menuOpen = false;
     }
 
     TweenLite.set(mainTier, { clearProps: 'all' });
-    console.log('clear all');
-    TweenLite.set(this.parentController._navigation, { clearProps: 'all' });
+    TweenLite.set(this.parentController._navigation, {delay: this.tweenTime, clearProps: 'all' });
   }
 
   private static getTierDepth(tierElement: HTMLElement): number {
