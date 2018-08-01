@@ -1,12 +1,4 @@
 .site-navigation-menu {
-  $padding: 2rem;
-  $zMenu: reset, tier-one;
-  $overlayBackgroundColor: #141414;
-  $menuItemLabelColor: #141414;
-  $seperatorColor: #141414;
-  $backButtonBackgroundColor: #DADFE1;
-  $backButtonColor: #141414;
-
   .icon-back,
   .icon-next {
     width: 0.6rem;
@@ -26,8 +18,8 @@
       width: 100%;
       color: #000;
       line-height: 2.4rem;
-      box-shadow: 0 0 0 0 rgba($seperatorColor, .2) inset,
-      0 -1px 0 0 rgba($seperatorColor, .2) inset;
+      box-shadow: 0 0 0 0 rgba($separatorColor, .2) inset,
+      0 -1px 0 0 rgba($separatorColor, .2) inset;
       letter-spacing: 1px;
 
       &.is-active {
@@ -90,8 +82,8 @@
 
     &.tier-container > li {
       &:first-child {
-        box-shadow: 0 -1px 0 0 rgba($seperatorColor, 0.2),
-        0 -1px 0 0 rgba($seperatorColor, 0.2) inset;
+        box-shadow: 0 -1px 0 0 rgba($separatorColor, 0.2),
+        0 -1px 0 0 rgba($separatorColor, 0.2) inset;
       }
     }
   }

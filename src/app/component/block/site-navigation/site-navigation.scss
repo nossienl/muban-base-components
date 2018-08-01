@@ -1,4 +1,7 @@
 .site-navigation {
+  @import "style/variables";
+  @import "style/icons";
+
   height: 5.6rem;
   width: 100%;
   position: fixed;
@@ -74,16 +77,8 @@
   @import 'style/site-navigation-menu-actions';
   @import "style/menu-button";
 
-  @media screen and (min-width: 768px) {}
-
   @media screen and (min-width: 1024px) {
     height: 8rem;
     padding: 2rem;
   }
-
-  @media screen and (min-width: 1366px) {}
-
-  @media screen and (min-width: 1600px) {}
-
-  @media screen and (min-width: 1920px) {}
 }

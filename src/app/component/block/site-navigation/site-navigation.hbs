@@ -15,7 +15,7 @@
             <li class="{{#if @last}}last-menu-item{{/if}}">
               <span class="tier-one-item tier-item">
                 {{name}}
-                {{> general/icon name='navigation-arrow' iconClassName='icon-next' }}
+                <span class="icon icon-next" data-icon="navigation-arrow"></span>
               </span>
               {{menuItems}}
               <ul class="tier-two tier-container">
@@ -24,7 +24,7 @@
                     {{#unless @key}}
                       <li class="back-navigation" data-back>
                       <span class="tier-item">
-                        {{> general/icon name='navigation-arrow' iconClassName='icon-back' }} Main Menu
+                         <span class="icon icon-back" data-icon="navigation-arrow"></span> Main Menu
                       </span>
                       </li>
                       <li class="menu-item-label">{{../name}}</li>
@@ -36,14 +36,14 @@
                         {{else}}
                           <span class="tier-two-item tier-item">
                             {{name}}
-                            {{> general/icon name='navigation-arrow' iconClassName='icon-next' }}
+                            <span class="icon icon-next" data-icon="navigation-arrow"></span>
                           </span>
                         {{/if}}
                         {{#if items}}
                           <ul class="tier-three tier-container">
                             <li class="back-navigation" data-back>
                               <span class="tier-item">
-                                {{> general/icon name='navigation-arrow' iconClassName='icon-back' }}
+                                 <span class="icon icon-back" data-icon="navigation-arrow"></span>
                                 {{name}}
                               </span>
                             </li>
@@ -73,7 +73,7 @@
               <span class="label">{{name}}</span>
               {{#if icon}}
                 <span class="icon">
-                  {{> general/icon name=icon }}
+                   <span class="icon icon-{{icon}}" data-icon="{{icon}}"></span>
                 </span>
               {{/if}}
             {{#if url}}</a>{{/if}}

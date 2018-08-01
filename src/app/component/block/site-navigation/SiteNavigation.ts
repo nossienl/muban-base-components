@@ -4,6 +4,7 @@ import SiteNavigationTransitionController from './SiteNavigationTransitionContro
 import MouseEvent from 'app/data/event/MouseEvent';
 import { DisposableEventListener } from 'seng-disposable-event-listener';
 
+declare function require(name: string): string;
 
 export default class SiteNavigation extends AbstractTransitionBlock {
   static displayName:string = 'site-navigation';
@@ -20,6 +21,7 @@ export default class SiteNavigation extends AbstractTransitionBlock {
   constructor(el:HTMLElement) {
     super(el);
 
+    this.setInlineSvg();
     this.transitionController = new SiteNavigationTransitionController(this);
     this._siteNavigation = el;
 
@@ -29,6 +31,15 @@ export default class SiteNavigation extends AbstractTransitionBlock {
       this.mobileFunctionality(!query.matches);
     });
   }
+
+  /**
+   * Return the svg inline based on component path.
+   */
+  private setInlineSvg(){
+    this.getElements('[data-icon]').forEach(el => {
+     el.innerHTML = require(`./svg/${el.dataset.icon}.svg`);
+    });
+  };
 
   private mobileFunctionality(enable: boolean) {
     this._menuButton.addEventListener('click', this.handleMenuButtonClick);
@@ -43,22 +54,24 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     } else {
       this.removeMobileFunctionality();
     }
-  }
+  };
 
   private removeMobileFunctionality() {
     this.listeners.forEach(listener => listener.dispose());
     this.listeners = [];
 
     this.transitionController.resetTierAnimationStyles();
-  }
+  };
 
   public handleMenuButtonClick = ():void => {
     if (!this.menuOpen) {
       this._siteNavigation.classList.add(SiteNavigation.IS_OPEN);
+      this._menuButton.classList.add(SiteNavigation.IS_OPEN);
       this.transitionController.animateIn(this._navigation);
     } else {
       this.transitionController.animateOut(this._navigation);
       this._siteNavigation.classList.remove(SiteNavigation.IS_OPEN);
+      this._menuButton.classList.remove(SiteNavigation.IS_OPEN);
     }
     this.menuOpen = !this.menuOpen;
   };
