@@ -2,7 +2,6 @@ import AbstractTransitionBlock from 'app/component/block/AbstractTransitionBlock
 import SiteNavigationTransitionController from './SiteNavigationTransitionController';
 import MouseEvent from 'app/data/event/MouseEvent';
 import { DisposableEventListener } from 'seng-disposable-event-listener';
-import { TweenLite } from "gsap";
 
 declare function require(name: string): string;
 
@@ -18,6 +17,11 @@ export default class SiteNavigation extends AbstractTransitionBlock {
   private _menuButton:HTMLElement = this.getElement('.js-menu-button');
   private _menuOpen:boolean = false;
 
+  private _searchWrapper:HTMLElement = this.getElement('.js-site-navigation-search');
+  private _searchButton:HTMLElement = this.getElement('.js-search-button');
+  private _searchCloseButton:HTMLElement = this.getElement('.js-close-search');
+  private _searchOpen:boolean = false;
+
   constructor(el:HTMLElement) {
     super(el);
 
@@ -25,13 +29,15 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     this.transitionController = new SiteNavigationTransitionController(this);
     this._siteNavigation = el;
 
+    this._searchButton.addEventListener('click', this.handleSearchButtonClick);
+    this._searchCloseButton.addEventListener('click', this.handleSearchButtonClick);
+
     this.mobileFunctionality(!SiteNavigation.desktop.matches);
 
     SiteNavigation.desktop.addListener((query) => {
       this.mobileFunctionality(!query.matches);
     });
   }
-
 
   public set menuOpen(valueToSet) {
     if (! this._menuOpen && valueToSet) {
@@ -42,6 +48,16 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     this._menuOpen = valueToSet;
     this.addClasses(this._menuOpen);
   }
+
+  public set searchOpen(valueToSet) {
+    if (! this._searchOpen && valueToSet) {
+      this._searchWrapper.classList.add(SiteNavigation.IS_OPEN);
+    } else if (this._searchOpen && !valueToSet) {
+      this._searchWrapper.classList.remove(SiteNavigation.IS_OPEN);
+    }
+    this._searchOpen = valueToSet;
+  }
+
   /**
    * Return the svg inline based on component path.
    */
@@ -72,11 +88,14 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     this.menuOpen = false;
 
     this.transitionController.resetTierAnimationStyles();
-
   };
 
   public handleMenuButtonClick = ():void => {
     this.menuOpen = !this._menuOpen;
+  };
+
+  public handleSearchButtonClick = ():void => {
+    this.searchOpen = !this._searchOpen;
   };
 
   private addClasses(shouldAdd:boolean) {

@@ -12,4 +12,4 @@ menuActions:
     target: '_blank' # optional
   - name: Search
     icon: magnifier # optional
-    class: 'search-action js-search-action' # optional
+    class: 'search-action js-search-button' # optional

@@ -87,8 +87,12 @@
         </ul>
       </nav>
 
-      <div class="site-navigation-search">
-        <input type="text" name="" id="" class="search-input">
+      <div class="site-navigation-search js-site-navigation-search">
+        <form action="" method="GET" class="search-form">
+          <button type="submit" class="search-submit"> <span class="icon icon-magnifier" data-icon="magnifier"></span></button>
+          <input type="text" name="search" id="search-input" class="search-input" placeholder="Enter Search">
+          <span class="icon icon-cross close-search js-close-search" data-icon="cross"></span>
+        </form>
       </div>
   </div>
 </header>

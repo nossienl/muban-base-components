@@ -8,4 +8,65 @@
   background-color: #fff;
   opacity: 0;
   visibility: hidden;
+  transition: visibility 0.2s, opacity 0.2s linear;
+  padding: 1rem 2rem 0;
+
+  &:before {
+    content: '';
+    height: calc(100vh - 100%);
+    width: 100%;
+    pointer-events: none;
+    left: 0;
+    top: 100%;
+    position: absolute;
+    background-color: #141414;
+    opacity: 0.2;
+  }
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .search-form {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-submit {
+    height: 1.4rem;
+    width: 1.5rem;
+  }
+
+  .close-search {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .search-input {
+    height: 3.6rem;
+    border-bottom: 1px solid red;
+    width: 100%;
+    font-size: 1.3rem;
+
+    margin:0 2rem;
+
+    @include input-placeholder{
+      color: red;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+   padding: 2rem;
+
+    &:before {
+      display: none;
+    }
+
+    .search-input {
+      height: 4rem;
+    }
+  }
 }
