@@ -15,7 +15,6 @@
     content: '';
     height: calc(100vh - 100%);
     width: 100%;
-    pointer-events: none;
     left: 0;
     top: 100%;
     position: absolute;
@@ -41,20 +40,23 @@
   }
 
   .close-search {
+    cursor: pointer;
     height: 1.5rem;
     width: 1.5rem;
+    padding: 0.2rem;
   }
 
   .search-input {
     height: 3.6rem;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #141414;
     width: 100%;
     font-size: 1.3rem;
 
     margin:0 2rem;
 
     @include input-placeholder{
-      color: red;
+      color: currentColor;
+      opacity: 0.5;
     }
   }
 
@@ -63,6 +65,10 @@
 
     &:before {
       display: none;
+    }
+
+    .search-form {
+     padding: 0 1.5rem;
     }
 
     .search-input {
