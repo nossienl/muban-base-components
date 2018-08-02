@@ -1,28 +1,28 @@
 name: Menu item 2
 lists:
   - list:
-    - name: Tier Two Example
+    - name: Sub Menu 2 Item
       items:
-      - name: Plant Applications
+      - name: Sub Sub Menu 2 Item
         url: '#'
-      - name: Scheduler
+      - name: Sub Sub Menu 2 Item 2
         url: '#'
-    - name: Predix ServiceMax
+    - name: Sub Menu 2 Item 2
       items:
-      - name: Plant Applications
+      - name: Sub Sub Menu 2 Item
         url: '#'
-      - name: Scheduler
+      - name: Sub Sub Menu 2 Item 2
         url: '#'
   - list:
-    - name: Predix Manufacturing  Execution Systems
+    - name: Sub Menu 2 Item 3
       items:
-      - name: Plant Applications
+      - name: Sub Sub Menu 2 Item
         url: '#'
-      - name: Scheduler
+      - name: Sub Sub Menu 2 Item 2
         url: '#'
-    - name: HMI/SCADA
+    - name: Sub Menu 2 Item 4
       items:
-      - name: Plant Applications
+      - name: Sub Sub Menu 2 Item
         url: '#'
-      - name: Scheduler
+      - name: Sub Sub Menu 2 Item 2
         url: '#'

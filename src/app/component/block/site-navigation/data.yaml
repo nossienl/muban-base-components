@@ -4,6 +4,7 @@ menuItems:
 - "import!./data/menu/menu-item-3.yaml"
 - "import!./data/menu/menu-item-4.yaml"
 - "import!./data/menu/menu-item-5.yaml"
+
 menuActions:
   - name: Sign in
     icon: user # optional

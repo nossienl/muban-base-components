@@ -1,7 +1,7 @@
 name: Menu Item 3
 lists:
   - list:
-    - name: Predix Asset Performance Management
+    - name: Predix Asset  Performance Management
       items:
         - name: APM Health
           url: '#'

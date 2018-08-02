@@ -20,6 +20,7 @@ class SiteNavigationTransitionController extends MubanTransitionController<SiteN
   public animateOut(menu: HTMLElement): void {
     const activeTier = menu.querySelector('ul.is-active') || menu.querySelector('.tier-one');
     TweenLite.to(menu, this.tweenTime, { y: `-${activeTier.clientHeight}px`, ease: Expo.easeIn });
+    this.resetTierAnimationStyles();
   }
 
   public initMobile(menu: HTMLElement) {
@@ -68,7 +69,7 @@ class SiteNavigationTransitionController extends MubanTransitionController<SiteN
       activeTier.classList.remove('is-active');
     }
 
-    TweenLite.set(mainTier, { clearProps: 'all' });
+    TweenLite.set(mainTier, {clearProps: 'all' });
     TweenLite.set(this.parentController._navigation, {delay: this.tweenTime, clearProps: 'all' });
   }
 
