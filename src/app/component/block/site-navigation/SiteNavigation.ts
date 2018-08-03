@@ -22,12 +22,22 @@ export default class SiteNavigation extends AbstractTransitionBlock {
   private _searchCloseButton:HTMLElement = this.getElement('.js-close-search');
   private _searchOpen:boolean = false;
 
+  private _menuItems: HTMLElement[];
+
   constructor(el:HTMLElement) {
     super(el);
 
     this.setInlineSvg();
     this.transitionController = new SiteNavigationTransitionController(this);
     this._siteNavigation = el;
+
+    this._menuItems = this.getElements('.js-menu-item');
+
+    this._menuItems.forEach((menuItem, index) => {
+      menuItem.addEventListener('click', this.setActiveMenuItem.bind(this, index));
+    });
+
+    document.addEventListener('click', this.handleDocumentClick.bind(this));
 
     this._searchButton.addEventListener('click', this.handleSearchButtonClick);
     this._searchCloseButton.addEventListener('click', this.handleSearchButtonClick);
@@ -37,6 +47,23 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     SiteNavigation.desktop.addListener((query) => {
       this.mobileFunctionality(!query.matches);
     });
+  }
+
+  public handleDocumentClick(event:MouseEvent) {
+    this._menuItems.forEach((menuItem, index) => {
+      menuItem.classList.remove(SiteNavigation.IS_OPEN);
+    });
+  }
+
+  public setActiveMenuItem(activeIndex:number) {
+
+    this._menuItems.forEach((menuItem, index) => {
+      if (activeIndex === index) {
+        menuItem.classList.add(SiteNavigation.IS_OPEN);
+      }
+    });
+
+
   }
 
   public set menuOpen(valueToSet) {

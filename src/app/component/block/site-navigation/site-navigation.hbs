@@ -12,7 +12,7 @@
           {{ menuItems.name }}
 
           {{#each menuItems}}
-            <li class="{{#if @last}}last-menu-item{{/if}}">
+            <li class="js-menu-item {{#if @last}}last-menu-item{{/if}}">
               <span class="tier-one-item tier-item">
                 {{name}}
                 <span class="icon icon-next" data-icon="navigation-arrow"></span>

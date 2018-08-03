@@ -1,5 +1,6 @@
 .site-navigation-menu {
   height: 100%;
+
   .icon-back,
   .icon-next {
     width: 0.6rem;
@@ -11,6 +12,7 @@
     margin: 0;
     left: 0;
     background-color: #fff;
+
 
     > li {
       display: inline-flex;
@@ -79,6 +81,8 @@
 
     .menu-background {
       display: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(black, 0);
     }
 
     &.tier-container > li {
@@ -209,7 +213,8 @@
         left: 0;
         background-color: rgba(#000, 0);
         pointer-events: none;
-        transition: background-color 200ms linear;
+        transition: background-color 200ms linear, opacity 200ms linear;
+        opacity: 0;
         z-index: -1;
         margin-right: 0;
       }
@@ -233,6 +238,12 @@
         justify-self: center;
         z-index: 3;
         user-select: none;
+
+        .tier-container {
+          visibility: hidden;
+          opacity: 0;
+          pointer-events: all;
+        }
 
         &:not(:last-child) {
           margin-right: 4.8rem;
@@ -275,12 +286,32 @@
           }
         }
 
+        &.is-open {
+          z-index: 2;
+
+          > .tier-item {
+            color: black;
+            z-index: 1;
+
+            &:after {
+              transform: scaleX(1);
+            }
+          }
+
+          .tier-container {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: all;
+          }
+        }
+
         @include hover {
           z-index: 2;
 
           ~.menu-background {
             height: 100%;
             background-color: rgba($overlayBackgroundColor, 0.5);
+            opacity: 1;
           }
 
           > .tier-item {
