@@ -286,25 +286,6 @@
           }
         }
 
-        &.is-open {
-          z-index: 2;
-
-          > .tier-item {
-            color: black;
-            z-index: 1;
-
-            &:after {
-              transform: scaleX(1);
-            }
-          }
-
-          .tier-container {
-            visibility: visible;
-            opacity: 1;
-            pointer-events: all;
-          }
-        }
-
         @include hover {
           z-index: 2;
 

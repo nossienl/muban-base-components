@@ -1,11 +1,7 @@
 .site-navigation {
   @import "style/variables";
   @import "style/icons";
-
-  html & {
-    -webkit-tap-highlight-color: rgba(black, 0);
-  }
-
+  
   height: 5.6rem;
   width: 100%;
   position: fixed;

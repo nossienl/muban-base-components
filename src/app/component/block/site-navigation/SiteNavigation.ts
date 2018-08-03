@@ -34,10 +34,10 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     this._menuItems = this.getElements('.js-menu-item');
 
     this._menuItems.forEach((menuItem, index) => {
-      menuItem.addEventListener('click', this.setActiveMenuItem.bind(this, index));
+      menuItem.addEventListener('click', ()=> this.setActiveMenuItem());
     });
 
-    document.addEventListener('click', this.handleDocumentClick.bind(this));
+    document.addEventListener('click', ()=>this.handleDocumentClick());
 
     this._searchButton.addEventListener('click', this.handleSearchButtonClick);
     this._searchCloseButton.addEventListener('click', this.handleSearchButtonClick);
@@ -49,22 +49,10 @@ export default class SiteNavigation extends AbstractTransitionBlock {
     });
   }
 
-  public handleDocumentClick(event:MouseEvent) {
-    this._menuItems.forEach((menuItem, index) => {
-      menuItem.classList.remove(SiteNavigation.IS_OPEN);
-    });
-  }
-
-  public setActiveMenuItem(activeIndex:number) {
-
-    this._menuItems.forEach((menuItem, index) => {
-      if (activeIndex === index) {
-        menuItem.classList.add(SiteNavigation.IS_OPEN);
-      }
-    });
-
-
-  }
+  // iOS Specific: Needs empty Click handler for focus then it will remove focus from menu
+  public handleDocumentClick() {}
+  // iOS Specific: Needs empty Click handler for focus then it will trigger :hover from css
+  public setActiveMenuItem() {}
 
   public set menuOpen(valueToSet) {
     if (! this._menuOpen && valueToSet) {
