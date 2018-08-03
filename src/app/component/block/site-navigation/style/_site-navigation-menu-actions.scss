@@ -43,6 +43,7 @@
 
   @media screen and (min-width: 1024px) {
     .menu-action {
+      user-select: none;
 
       &.menu-button-holder {
         margin-left: 0;

@@ -33,7 +33,7 @@ export default class SiteNavigation extends AbstractTransitionBlock {
 
     this._menuItems = this.getElements('.js-menu-item');
 
-    this._menuItems.forEach((menuItem, index) => {
+    this._menuItems.forEach(menuItem => {
       menuItem.addEventListener('click', ()=> this.setActiveMenuItem());
     });
 
