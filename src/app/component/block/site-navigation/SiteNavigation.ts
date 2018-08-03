@@ -1,6 +1,6 @@
 import AbstractTransitionBlock from 'app/component/block/AbstractTransitionBlock';
 import SiteNavigationTransitionController from './SiteNavigationTransitionController';
-import MouseEvent from 'app/data/event/MouseEvent';
+import MouseEvent from './event/MouseEvent';
 import { DisposableEventListener } from 'seng-disposable-event-listener';
 
 declare function require(name: string): string;
