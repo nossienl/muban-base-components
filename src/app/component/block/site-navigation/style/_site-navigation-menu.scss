@@ -193,7 +193,11 @@
 
     .tier-two,
     .tier-three {
-      @include offset(0, 0);
+      top: 0;
+      left: 0;
+      right: 0;
+      max-width: 192rem;
+      margin: 0 auto;
       padding-top: 10rem;
       transform: none;
     }
