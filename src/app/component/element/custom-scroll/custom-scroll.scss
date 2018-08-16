@@ -1,0 +1,59 @@
+.custom-scroll {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll-content {
+  @include size(100%);
+  box-sizing: content-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 20px;
+}
+
+.scroll-content {
+  @include size(100%);
+  box-sizing: content-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 20px;
+}
+
+.scroll-bar {
+  background: rgba(#000, 0.2);
+  border-radius: 4px;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 8px;
+
+  &:before {
+    background: transparent;
+    border: 0;
+    bottom: 0;
+    color: transparent;
+    content: '.';
+    display: none;
+    font-size: 0;
+    height: 100%;
+    left: -2px;
+    position: absolute;
+    text-shadow: none;
+    top: 0;
+    width: 2px;
+  }
+
+  &:hover:before {
+    display: block;
+  }
+}
+
+.knob {
+  background: yellow;
+  border-radius: 4px;
+  display: block;
+  height: 100px;
+  position: relative;
+}

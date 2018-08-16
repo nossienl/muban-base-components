@@ -9,3 +9,6 @@ meta:
 blocks:
   - name: "site-navigation"
     data: "import!../app/component/block/site-navigation/data.yaml"
+
+  - name: "content"
+    data: "import!../app/component/block/content/data.yaml"
