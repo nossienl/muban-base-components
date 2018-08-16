@@ -1,7 +1,7 @@
 .site-navigation {
   @import "style/variables";
   @import "style/icons";
-
+  
   height: 5.6rem;
   width: 100%;
   position: fixed;
@@ -22,6 +22,8 @@
     left: 0;
     top: 0;
     z-index: -1;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(black, 0);
   }
   &:after {
     content: '';
@@ -60,6 +62,9 @@
     color: #63666a;
     z-index: 1;
     flex-shrink: 0;
+
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(black, 0);
 
     a {
       height: 100%;

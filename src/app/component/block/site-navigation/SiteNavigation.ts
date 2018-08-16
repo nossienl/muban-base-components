@@ -22,12 +22,22 @@ export default class SiteNavigation extends AbstractTransitionBlock {
   private _searchCloseButton:HTMLElement = this.getElement('.js-close-search');
   private _searchOpen:boolean = false;
 
+  private _menuItems: HTMLElement[];
+
   constructor(el:HTMLElement) {
     super(el);
 
     this.setInlineSvg();
     this.transitionController = new SiteNavigationTransitionController(this);
     this._siteNavigation = el;
+
+    this._menuItems = this.getElements('.js-menu-item');
+
+    this._menuItems.forEach(menuItem => {
+      menuItem.addEventListener('click', ()=> this.setActiveMenuItem());
+    });
+
+    document.addEventListener('click', ()=>this.handleDocumentClick());
 
     this._searchButton.addEventListener('click', this.handleSearchButtonClick);
     this._searchCloseButton.addEventListener('click', this.handleSearchButtonClick);
@@ -38,6 +48,11 @@ export default class SiteNavigation extends AbstractTransitionBlock {
       this.mobileFunctionality(!query.matches);
     });
   }
+
+  // iOS Specific: Needs empty Click handler for focus then it will remove focus from menu
+  public handleDocumentClick() {}
+  // iOS Specific: Needs empty Click handler for focus then it will trigger :hover from css
+  public setActiveMenuItem() {}
 
   public set menuOpen(valueToSet) {
     if (! this._menuOpen && valueToSet) {
