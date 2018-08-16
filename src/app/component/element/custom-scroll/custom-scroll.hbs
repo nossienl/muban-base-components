@@ -1,7 +1,11 @@
 <link rel="stylesheet" href="./custom-scroll.scss">
 <script src="./CustomScroll.ts"></script>
 
-<div data-component="custom-scroll"  class="custom-scroll">
+<div data-component="custom-scroll"
+     {{#if inside}}data-inside{{/if}}
+     {{#if set-content-size}}data-set-content-size{{/if}}
+     class="custom-scroll"
+>
   <div class="scroll-content" data-scroll-content>
     <div class="scroll-content-inner" data-content-inner>
       {{> @partial-block }}
