@@ -12,8 +12,13 @@
 }
 
 .error-message {
+  display: none;
   color: red;
-  display: block;
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
 }
 
 // INPUTS // ============================== //
