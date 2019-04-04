@@ -20,6 +20,13 @@ form:
       required: true
       requiredMessage: '* Required'
 
+    - type: tel
+      name: phoneNumber
+      label: Phone Number
+      errorMessage: Please Fill in an valid phone number
+      required: true
+      requiredMessage: '* Required'
+
     - type: textarea
       name: message
       label: Message

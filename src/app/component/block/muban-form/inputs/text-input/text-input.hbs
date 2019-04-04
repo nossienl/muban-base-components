@@ -3,7 +3,7 @@
 <div class="text-input" data-component="text-input">
   <input type="text" required="required" name="{{name}}" id="{{formName}}-{{name}}"/>
   <span class="bar"></span>
-  <label>{{label}}</label>
+  <label for="{{formName}}-{{name}}">{{label}}</label>
   {{#if required }}
     <span class="required-message">{{requiredMessage}}</span>
   {{/if}}
