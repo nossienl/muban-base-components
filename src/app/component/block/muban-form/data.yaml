@@ -1,0 +1,28 @@
+key: value
+
+form:
+  name: contact
+  action: "#"
+  method: POST
+  fields:
+
+    - type: text
+      name: first-name
+      label: First Name
+      errorMessage: Please Fill in a correct name
+      required: true
+      requiredMessage: '* Required'
+
+    - type: email
+      name: email
+      label: Email
+      errorMessage: Please Fill in an valid email
+      required: true
+      requiredMessage: '* Required'
+
+    - type: textarea
+      name: message
+      label: Message
+      errorMessage: Please Fill in an message
+      required: true
+      requiredMessage: '* Required'

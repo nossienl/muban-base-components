@@ -67,7 +67,8 @@
     "normalize.css": "^7.0.0",
     "qs": "^6.5.1",
     "seng-disposable-event-listener": "^1.0.3",
-    "seng-scss": "^1.0.0"
+    "seng-scss": "^1.0.0",
+    "validate.js": "^0.12.0"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.0.8",

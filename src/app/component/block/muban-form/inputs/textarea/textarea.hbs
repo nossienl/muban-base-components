@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="./textarea.scss">
+
+<div class="textarea" data-component="textarea">
+  <textarea type="textarea" rows="5" required="required" name="{{name}}" id="{{formName}}-{{name}}"></textarea>
+  <span class="bar"></span>
+  <label>{{label}}</label>
+  {{#if required }}
+    <span class="required-message">{{requiredMessage}}</span>
+  {{/if}}
+  <span class="error-message">{{errorMessage}}</span>
+</div>
