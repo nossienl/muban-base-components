@@ -3,6 +3,10 @@
   margin: 5rem auto;
 }
 
+.info {
+  margin-top: 10px;
+}
+
 .required-message {
   display: block;
 }
@@ -17,7 +21,10 @@ textarea {
   resize: none;
 }
 
-input,
+input[type='text'],
+input[type='password'],
+input[type='tel'],
+input[type='email'],
 textarea {
   background: rgba(232, 236, 241, 1);
   color: black;

@@ -40,3 +40,12 @@ form:
       errorMessage: Please Fill in an message
       required: true
       requiredMessage: '* Required'
+
+    - type: checkbox
+      name: policy
+      id: policy
+      label: >
+        I accept the <a href="#" target="_blank">privacy policy</a>.
+      required: true
+      requiredMessage: '* Required'
+      errorMessage: Please accept our policy

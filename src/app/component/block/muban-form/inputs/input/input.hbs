@@ -1,3 +1,14 @@
 <link rel="stylesheet" href="./input.scss">
 
-<input type="{{type}}" required="required" name="{{name}}" id="{{formName}}-{{name}}"/>
+<div class="input" data-component="text-input">
+  <input type="{{type}}" required="required" name="{{name}}" id="{{formName}}-{{name}}"/>
+  <span class="bar"></span>
+  <label for="{{formName}}-{{name}}">{{label}}</label>
+  <div class="info">
+    {{#if required }}
+      <span class="required-message">{{requiredMessage}}</span>
+    {{/if}}
+    <span class="error-message">{{errorMessage}}</span>
+  </div>
+</div>
+

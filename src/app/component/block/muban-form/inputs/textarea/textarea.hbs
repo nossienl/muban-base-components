@@ -4,8 +4,10 @@
   <textarea type="textarea" rows="5" required="required" name="{{name}}" id="{{formName}}-{{name}}"></textarea>
   <span class="bar"></span>
   <label for="{{formName}}-{{name}}">{{label}}</label>
-  {{#if required }}
-    <span class="required-message">{{requiredMessage}}</span>
-  {{/if}}
-  <span class="error-message">{{errorMessage}}</span>
+  <div class="info">
+    {{#if required }}
+      <span class="required-message">{{requiredMessage}}</span>
+    {{/if}}
+    <span class="error-message">{{errorMessage}}</span>
+  </div>
 </div>
