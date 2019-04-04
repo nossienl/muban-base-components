@@ -6,7 +6,8 @@
   data-component="muban-form"
   action="{{form.action}}"
   name="{{form.name}}"
-  method="{{form.method}}" >
+  method="{{form.method}}"
+  novalidate >
 
   {{#each form.fields}}
     {{#if  (condition type '===' 'checkbox')}}

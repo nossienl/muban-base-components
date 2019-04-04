@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="./textarea.scss">
 
 <div class="textarea" data-component="textarea">
-  <textarea type="textarea" rows="5" required="required" name="{{name}}" id="{{formName}}-{{name}}"></textarea>
+  <textarea type="textarea" rows="5" required="required" name="{{name}}" id="{{formName}}{{name}}"></textarea>
   <span class="bar"></span>
-  <label for="{{formName}}-{{name}}">{{label}}</label>
+  <label for="{{formName}}{{name}}">{{label}}</label>
   <div class="info">
     {{#if required }}
       <span class="required-message">{{requiredMessage}}</span>

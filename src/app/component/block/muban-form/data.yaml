@@ -7,7 +7,7 @@ form:
   fields:
 
     - type: text
-      name: first-name
+      name: firstName
       label: First Name
       errorMessage: Please Fill in a correct name
       required: true

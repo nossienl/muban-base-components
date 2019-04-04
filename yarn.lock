@@ -8101,6 +8101,14 @@ seng-disposable-event-listener@^1.0.3:
     seng-disposable "^1.1.3"
     seng-event "^1.2.3"
 
+seng-disposable-manager@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/seng-disposable-manager/-/seng-disposable-manager-1.0.3.tgz#bc6ceeb011af8998fe1b00afb65e23ca5cb122de"
+  integrity sha512-EHi21CTolSb5c99uQsXfaUA9aA/Cb0rDOrGaT5fz/LIwtn8Xg/GsFwIyJm4Ale7K6qAu5zU7fIJG6OTjpTw9iQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0-beta.35"
+    lodash "^4.17.10"
+
 seng-disposable@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/seng-disposable/-/seng-disposable-1.1.3.tgz#b8aeb960f17f136107ac6ca1923e8d2ca5fbb630"

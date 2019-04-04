@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="./checkbox.scss">
+
+<div class="checkbox" data-component="checkbox">
+  <input type="{{type}}" class="checkbox-custom" name="{{name}}" id="{{formName}}{{name}}"/>
+  <label for="{{formName}}{{name}}" class="checkbox-custom-label">{{{ label }}}</label>
+  <div class="info">
+    {{#if required }}
+      <span class="required-message">{{requiredMessage}}</span>
+    {{/if}}
+    <span class="error-message">{{errorMessage}}</span>
+  </div>
+</div>
