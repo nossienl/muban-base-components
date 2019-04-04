@@ -3,6 +3,15 @@
   margin: 5rem auto;
 }
 
+.required-message {
+  display: block;
+}
+
+.error-message {
+  color: red;
+  display: block;
+}
+
 // INPUTS // ============================== //
 textarea {
   resize: none;

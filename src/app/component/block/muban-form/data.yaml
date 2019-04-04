@@ -27,6 +27,13 @@ form:
       required: true
       requiredMessage: '* Required'
 
+    - type: password
+      name: password
+      label: Password
+      errorMessage: A minimum 8 characters password contains a combination of uppercase and lowercase letter and number are required.
+      required: true
+      requiredMessage: '* Required'
+
     - type: textarea
       name: message
       label: Message

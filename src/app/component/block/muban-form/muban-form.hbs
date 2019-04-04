@@ -1,14 +1,25 @@
 <link rel="stylesheet" href="./muban-form.scss">
 <script src="./MubanForm.ts"></script>
 
-<div class="muban-form" data-component="muban-form">
-  <form action="{{form.action}}" name="{{form.name}}" method="{{form.method}}">
-    {{#each form.fields}}
-      {{#if (condition type '===' 'text') }}
-        {{> block/muban-form/inputs/text-input data=this formName=../form.name }}
-      {{ else if (condition type '===' 'textarea')}}
-        {{> block/muban-form/inputs/textarea data=this formName=../form.name }}
-      {{/if}}
-    {{/each}}
-  </form>
-</div>
+
+<form
+  class="muban-form"
+  data-component="muban-form"
+  action="{{form.action}}"
+  name="{{form.name}}"
+  method="{{form.method}}" >
+  {{#each form.fields}}
+    {{#if (condition type '===' 'text') }}
+      {{> block/muban-form/inputs/text-input data=this formName=../form.name }}
+    {{ else if (condition type '===' 'email')}}
+      {{> block/muban-form/inputs/email-input data=this formName=../form.name }}
+    {{ else if (condition type '===' 'password')}}
+      {{> block/muban-form/inputs/password-input data=this formName=../form.name }}
+    {{ else if (condition type '===' 'tel')}}
+      {{> block/muban-form/inputs/tel-input data=this formName=../form.name }}
+    {{ else if (condition type '===' 'textarea')}}
+      {{> block/muban-form/inputs/textarea data=this formName=../form.name }}
+    {{/if}}
+  {{/each}}
+</form>
+
