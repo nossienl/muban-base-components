@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="./checkbox.scss">
 
 <div class="checkbox" data-component="checkbox">
-  <input type="{{type}}" class="checkbox-custom" name="{{name}}" id="{{formName}}{{name}}"/>
+  <input
+    type="{{type}}"
+    {{#if validationRules }}data-validate="{{validationRules}}"{{/if}}
+    class="checkbox-custom"
+    name="{{name}}"
+    id="{{formName}}{{name}}"
+  />
   <label for="{{formName}}{{name}}" class="checkbox-custom-label">{{{ label }}}</label>
   <div class="info">
     {{#if required }}

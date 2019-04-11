@@ -10,35 +10,35 @@ form:
       name: firstName
       label: First Name
       errorMessage: Please Fill in a correct name
-      required: true
+      validationRules: 'required'
       requiredMessage: '* Required'
 
     - type: email
       name: email
       label: Email
       errorMessage: Please Fill in an valid email
-      required: true
+      validationRules: 'required|email'
       requiredMessage: '* Required'
 
     - type: tel
       name: phoneNumber
       label: Phone Number
       errorMessage: Please Fill in an valid phone number
-      required: true
+      validationRules: 'required|phoneNumber'
       requiredMessage: '* Required'
 
     - type: password
       name: password
       label: Password
       errorMessage: A minimum 8 characters password contains a combination of uppercase and lowercase letter and number are required.
-      required: true
+      validationRules: 'required'
       requiredMessage: '* Required'
 
     - type: textarea
       name: message
       label: Message
       errorMessage: Please Fill in an message
-      required: true
+      validationRules: 'required'
       requiredMessage: '* Required'
 
     - type: checkbox
@@ -46,6 +46,6 @@ form:
       id: policy
       label: >
         I accept the <a href="#" target="_blank">privacy policy</a>.
-      required: true
+      validationRules: 'requiredCheckbox'
       requiredMessage: '* Required'
       errorMessage: Please accept our policy
